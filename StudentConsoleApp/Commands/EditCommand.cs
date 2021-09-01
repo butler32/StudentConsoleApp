@@ -11,19 +11,19 @@ namespace StudentsConsoleApp.Commands
     class EditCommand : Command
     {
         private Student student;
-        int id;
 
         public EditCommand(Repository repository, string[] parametrs)
             : base(repository, parametrs)
         {
-            student = new Student(parametrs[2], parametrs[3], parametrs[4], int.Parse(parametrs[5]));
-            id = int.Parse(parametrs[1]);
         }
 
         public override string Execute()
         {
-            repository.Edit(student, id);
-            return "Студент изменён";
+            student = new Student(parametrs[2], parametrs[3], parametrs[4], int.Parse(parametrs[5]));
+            int check = repository.Edit(int.Parse(parametrs[1]), student);
+            if (check != 0)
+                return $"Студент c id {check} изменён";
+            else return "Возникла ошибка";
         }
     }
 }

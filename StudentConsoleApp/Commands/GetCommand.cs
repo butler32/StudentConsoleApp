@@ -1,4 +1,6 @@
 ﻿using System;
+using StudentConsoleApp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +10,22 @@ namespace StudentsConsoleApp.Commands
 {
     class GetCommand : Command
     {
-        int id;
         public GetCommand(Repository repository, string[] parametrs)
             : base(repository, parametrs)
         {
-            id = int.Parse(parametrs[1]);
         }
         public override string Execute()
         {
-            repository.Get(id);
-            return "";
+            Student student = repository.Get(int.Parse(parametrs[1]));
+            if (student is not null)
+            {
+                return $"Студент с id {student.id}: Имя - {student.name}, " +
+                    $"Фамилия - {student.surname}, " +
+                    $"Пол - {student.gender}, " +
+                    $"Возраст - {student.age}";
+            }
+            else
+                return "Такого студента не существует";
         }
     }
 }

@@ -10,48 +10,76 @@ namespace StudentsConsoleApp
     class Repository
     {
         public Student[] students = new Student[10];
+        int id = 1;
 
-        public void Add(Student student)
+        public int Add(Student student)
         {
-            bool isAdded = false;
             for (int i = 0; i < 10; i++)
             {
                 if (students[i] is null)
                 {
                     students[i] = student;
-                    isAdded = true;
-                    break;
+                    students[i].id = id;
+                    return id++;
                 }
             }
-
-            if (!isAdded)
-            {
-                throw new ArgumentException("Список заполнен");
-            }
+            return 0;
         }
 
-        public void Edit(Student student, int id)
+        public Student Get(int id)
         {
-            students[id] = student;
-        }
-
-        public void Get(int id)
-        {
-            if (students[id] != null)
+            for (int i = 0; i < students.Length; i++)
             {
-                Console.Write($"Студент под номером {id}: " +
-                $"Имя - {students[id].name}, " +
-                $"Фамилия - {students[id].surname}, " +
-                $"Пол - {students[id].gender}, " +
-                $"Возраст - {students[id].age}");
+                if (students[i] != null)
+                    if (students[i].id == id)
+                        return students[i];
             }
-            else Console.WriteLine("Студента с таким номером не существует");
+            return null;
 
         }
 
         public void Delete(int id)
         {
             students[id] = null;
+        }
+
+        public int Edit(int id, Student student)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                if (students[i] != null && students[i].id == id)
+                {
+                    int oldId = students[i].id;
+                    students[i] = student;
+                    students[i].id = oldId;
+                    return id;
+                }
+            }
+            return 0;
+        }
+
+        public Student[] Find(string name)
+        {
+            Student[] studentsSearch = new Student[10];
+            for (int i = 0, j = 0; i < students.Length; i++)
+            {
+                if (students[i] != null)
+                {
+                    if (students[i].name.Contains(name, StringComparison.OrdinalIgnoreCase) ||
+                    students[i].surname.Contains(name, StringComparison.OrdinalIgnoreCase))
+                    {
+                        studentsSearch[j] = students[i];
+                        j++;
+                        continue;
+                    }
+                }
+            }
+            return studentsSearch;
+        }
+
+        public Student[] List()
+        {
+            return students;
         }
 
         // *****

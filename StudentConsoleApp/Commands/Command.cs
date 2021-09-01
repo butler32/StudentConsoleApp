@@ -8,7 +8,7 @@ namespace StudentsConsoleApp.Commands
 {
     class Command
     {
-        private string[] parametrs;
+        protected string[] parametrs;
         protected Repository repository;
 
         public Command(Repository repository, string[] parametrs)
