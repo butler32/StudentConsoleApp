@@ -1,4 +1,5 @@
-﻿using StudentsConsoleApp.Commands;
+﻿using StudentConsoleApp.Validators;
+using StudentsConsoleApp.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,13 +35,54 @@ namespace StudentsConsoleApp
             switch (parametrs[0].ToUpper())
             {
                 case "ADD":
-                    return new AddComand(repository, parametrs);
+                    {
+                        AddValidator addValidator = new AddValidator(parametrs);
+                        parametrs = addValidator.Validate();
+                        if (int.Parse(parametrs[0]) == 1)
+                            return new AddComand(repository, parametrs);
+                        else return new ErrorCommand(repository, parametrs);
+                    }
                 case "EDIT":
-                    return new EditCommand(repository, parametrs);
+                    {
+                        EditValidator editValidator = new EditValidator(parametrs);
+                        parametrs = editValidator.Validate();
+                        if (int.Parse(parametrs[0]) == 1)
+                            return new EditCommand(repository, parametrs);
+                        else return new ErrorCommand(repository, parametrs);
+                    }
                 case "GET":
-                    return new GetCommand(repository, parametrs);
+                    {
+                        IdValidator idValidator = new IdValidator(parametrs);
+                        parametrs = idValidator.Validate();
+                        if (int.Parse(parametrs[0]) == 1)
+                            return new GetCommand(repository, parametrs);
+                        else return new ErrorCommand(repository, parametrs);
+                        
+                    }
                 case "DELETE":
-                    return new DeleteCommand(repository, parametrs);
+                    {
+                        IdValidator idValidator = new IdValidator(parametrs);
+                        parametrs = idValidator.Validate();
+                        if (int.Parse(parametrs[0]) == 1)
+                            return new DeleteCommand(repository, parametrs);
+                        else return new ErrorCommand(repository, parametrs);
+                    }
+                case "LIST":
+                    {
+                        return new ListCommand(repository, parametrs);
+                    }
+                case "RAND":
+                    {
+                        return new RandomCommand(repository, parametrs);
+                    }
+                case "FIND":
+                    {
+                        FindValidator findValidator = new FindValidator(parametrs);
+                        parametrs = findValidator.Validate();
+                        if (int.Parse(parametrs[0]) == 1)
+                            return new FindCommand(repository, parametrs);
+                        else return new ErrorCommand(repository, parametrs);
+                    }
                 default:
                     return new Command(repository, parametrs);
             }

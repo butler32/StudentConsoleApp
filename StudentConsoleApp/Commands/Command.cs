@@ -19,7 +19,7 @@ namespace StudentsConsoleApp.Commands
 
         public virtual string Execute()
         {
-            return "Нечего делать!";
+            return "Введите верно команду";
         }
     }
 }
