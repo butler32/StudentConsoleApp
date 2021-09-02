@@ -30,17 +30,24 @@ namespace StudentsConsoleApp
         {
             for (int i = 0; i < students.Length; i++)
             {
-                if (students[i] != null)
-                    if (students[i].id == id)
-                        return students[i];
+                if (students[i] != null && students[i].id == id)
+                    return students[i];
             }
             return null;
 
         }
 
-        public void Delete(int id)
+        public int Delete(int id)
         {
-            students[id] = null;
+            for (int i = 0; i < students.Length; i++)
+            {
+                if (students[i] is not null && students[i].id == id)
+                {
+                    students[i] = null;
+                    return 1;
+                }
+            }
+            return 0;
         }
 
         public int Edit(int id, Student student)
@@ -61,25 +68,41 @@ namespace StudentsConsoleApp
         public Student[] Find(string name)
         {
             Student[] studentsSearch = new Student[10];
-            for (int i = 0, j = 0; i < students.Length; i++)
+            int j = 0;
+            for (int i = 0; i < students.Length; i++)
             {
-                if (students[i] != null)
+                if (students[i] != null && (students[i].name.Contains(name, StringComparison.OrdinalIgnoreCase) ||
+                    students[i].surname.Contains(name, StringComparison.OrdinalIgnoreCase)))
                 {
-                    if (students[i].name.Contains(name, StringComparison.OrdinalIgnoreCase) ||
-                    students[i].surname.Contains(name, StringComparison.OrdinalIgnoreCase))
-                    {
-                        studentsSearch[j] = students[i];
-                        j++;
-                        continue;
-                    }
+                    studentsSearch[j] = students[i];
+                    j++;
+                    continue;
                 }
             }
+
             return studentsSearch;
         }
 
         public Student[] List()
         {
-            return students;
+            int length = 0;
+            for (int i = 0; i < students.Length; i++)
+            {
+                if (students[i] is not null)
+                    length++;
+            }
+
+            Student[] studentsList = new Student[length];
+            int j = 0;
+            for (int i = 0; i < students.Length; i++)
+            {
+                if (students[i] is not null)
+                {
+                    studentsList[j] = students[i];
+                    j++;
+                }
+            }
+            return studentsList;
         }
 
         // *****

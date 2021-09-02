@@ -23,18 +23,8 @@ namespace StudentsConsoleApp.Commands
                 return "Нет студентов";
             }
 
-            do
-            {
-                int index = rnd.Next(0, students.Length);
-                if (students[index] != null)
-                {
-                    return $"Студент с id {students[index].id}: Имя - {students[index].name}, " +
-                    $"Фамилия - {students[index].surname}, " +
-                    $"Пол - {students[index].gender}, " +
-                    $"Возраст - {students[index].age}";
-                }
-            }
-            while (true);
+            int index = rnd.Next(0, students.Length);
+            return Student.ToString(students[index]);
         }
     }
 }

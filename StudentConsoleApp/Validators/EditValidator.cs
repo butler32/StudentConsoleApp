@@ -16,7 +16,7 @@ namespace StudentConsoleApp.Validators
         {
             if (parametrs[1] is null || parametrs[2] is null || parametrs[3] is null || parametrs[4] is null || parametrs[5] is null)
             {
-                parametrs[0] = "2";
+                parametrs[6] = "2";
                 return parametrs;
             }
 
@@ -24,14 +24,14 @@ namespace StudentConsoleApp.Validators
             bool result = int.TryParse(parametrs[5], out intCheck);
             if (result is false)
             {
-                parametrs[0] = "3";
+                parametrs[6] = "3";
                 return parametrs;
             }
             else
             {
                 if (intCheck < 18 || intCheck > 99)
                 {
-                    parametrs[0] = "3";
+                    parametrs[6] = "7";
                     return parametrs;
                 }
             }
@@ -39,7 +39,7 @@ namespace StudentConsoleApp.Validators
             result = int.TryParse(parametrs[1], out intCheck);
             if (result is false)
             {
-                parametrs[0] = "3";
+                parametrs[6] = "3";
                 return parametrs;
             }
 
@@ -77,7 +77,7 @@ namespace StudentConsoleApp.Validators
                     }
                 default:
                     {
-                        parametrs[0] = "4";
+                        parametrs[6] = "4";
                         return parametrs;
                     }
             }
@@ -88,7 +88,7 @@ namespace StudentConsoleApp.Validators
 
             if (name.Length > 50)
             {
-                parametrs[0] = "5";
+                parametrs[6] = "5";
                 return parametrs;
             }
 
@@ -96,7 +96,7 @@ namespace StudentConsoleApp.Validators
             {
                 if (char.IsDigit(name[i]))
                 {
-                    parametrs[0] = "5";
+                    parametrs[6] = "6";
                     return parametrs;
                 }
             }
@@ -106,7 +106,7 @@ namespace StudentConsoleApp.Validators
 
             if (name.Length > 50)
             {
-                parametrs[0] = "5";
+                parametrs[6] = "5";
                 return parametrs;
             }
 
@@ -114,13 +114,13 @@ namespace StudentConsoleApp.Validators
             {
                 if (char.IsDigit(name[i]))
                 {
-                    parametrs[0] = "5";
+                    parametrs[6] = "6";
                     return parametrs;
                 }
             }
 
             parametrs[3] = name;
-            parametrs[0] = "1";
+            parametrs[6] = "1";
             return parametrs;
         }
     }

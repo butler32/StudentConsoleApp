@@ -15,20 +15,17 @@ namespace StudentsConsoleApp.Commands
 
         public override string Execute()
         {
-            string studentsList = string.Empty;
+            StringBuilder studentsList = new StringBuilder();
             Student[] student = repository.List();
             for (int i = 0; i < student.Length; i++)
             {
                 if (student[i] != null)
                 {
-                    studentsList += $"Студент с id {student[i].id}: Имя - {student[i].name}, " +
-                $"Фамилия - {student[i].surname}, " +
-                $"Пол - {student[i].gender}, " +
-                $"Возраст - {student[i].age}\n";
+                    studentsList.Append(Student.ToString(student[i]));
                 }
             }
-            if (!string.IsNullOrEmpty(studentsList))
-                return studentsList;
+            if (!string.IsNullOrEmpty(studentsList.ToString()))
+                return studentsList.ToString();
             else
                 return "Список пуст";
         }

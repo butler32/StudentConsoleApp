@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentsConsoleApp.Commands
 {
-    class Command
+    abstract class Command
     {
         protected string[] parametrs;
         protected Repository repository;
@@ -17,9 +17,6 @@ namespace StudentsConsoleApp.Commands
             this.repository = repository;
         }
 
-        public virtual string Execute()
-        {
-            return "Введите верно команду";
-        }
+        public abstract string Execute();
     }
 }

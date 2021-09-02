@@ -14,8 +14,10 @@ namespace StudentsConsoleApp.Commands
         }
         public override string Execute()
         {
-            repository.Delete(int.Parse(parametrs[1]));
-            return "Студент отчислен(";
+            int result = repository.Delete(int.Parse(parametrs[1]));
+            string res;
+            _ = result == 1 ? res = "Студент отчислен(" : res = "Нету студента с таким id";
+            return res;
         }
     }
 }

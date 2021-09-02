@@ -15,21 +15,18 @@ namespace StudentsConsoleApp.Commands
 
         public override string Execute()
         {
-            string findStudent = "Найдены студенты:\n";
             Student[] student = repository.Find(parametrs[1]);
             if (student[0] is null)
                 return "Студентов не найдено";
+            StringBuilder findStudent = new StringBuilder("Найдены студенты:\n");
             for (int i = 0; i < student.Length; i++)
             {
                 if (student[i] != null)
                 {
-                    findStudent += $"Студент с id {student[i].id}: Имя - {student[i].name}, " +
-                    $"Фамилия - {student[i].surname}, " +
-                    $"Пол - {student[i].gender}, " +
-                    $"Возраст - {student[i].age}\n";
+                    findStudent.Append(Student.ToString(student[i]));
                 }
             }
-            return findStudent;
+            return findStudent.ToString();
         }
     }
 }

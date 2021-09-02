@@ -19,10 +19,7 @@ namespace StudentsConsoleApp.Commands
             Student student = repository.Get(int.Parse(parametrs[1]));
             if (student is not null)
             {
-                return $"Студент с id {student.id}: Имя - {student.name}, " +
-                    $"Фамилия - {student.surname}, " +
-                    $"Пол - {student.gender}, " +
-                    $"Возраст - {student.age}";
+                return Student.ToString(student);
             }
             else
                 return "Такого студента не существует";

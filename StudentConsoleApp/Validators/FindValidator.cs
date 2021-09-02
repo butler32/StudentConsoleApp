@@ -16,7 +16,7 @@ namespace StudentConsoleApp.Validators
         {
             if (parametrs[1] is null)
             {
-                parametrs[0] = "2";
+                parametrs[6] = "2";
                 return parametrs;
             }
 
@@ -25,7 +25,7 @@ namespace StudentConsoleApp.Validators
 
             if (name.Length > 50)
             {
-                parametrs[0] = "5";
+                parametrs[6] = "5";
                 return parametrs;
             }
 
@@ -33,13 +33,13 @@ namespace StudentConsoleApp.Validators
             {
                 if (char.IsDigit(name[i]))
                 {
-                    parametrs[0] = "5";
+                    parametrs[6] = "6";
                     return parametrs;
                 }
             }
 
             parametrs[1] = name;
-            parametrs[0] = "1";
+            parametrs[6] = "1";
             return parametrs;
         }
     }

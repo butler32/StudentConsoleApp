@@ -16,15 +16,15 @@ namespace StudentConsoleApp.Validators
         {
             if (parametrs[1] is null)
             {
-                parametrs[0] = "2";
+                parametrs[6] = "2";
                 return parametrs;
             }
 
             int intCheck;
             bool result = int.TryParse(parametrs[1], out intCheck);
             if (result is true)
-                parametrs[0] = "1";
-            else parametrs[0] = "3";
+                parametrs[6] = "1";
+            else parametrs[6] = "3";
             return parametrs;
         }
     }

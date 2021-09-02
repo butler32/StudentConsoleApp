@@ -24,5 +24,13 @@ namespace StudentConsoleApp
         public Student()
         {
         }
+        
+        public static string ToString(Student student)
+        {
+            return $"Студент с id {student.id}: Имя - {student.name}, " +
+                    $"Фамилия - {student.surname}, " +
+                    $"Пол - {student.gender}, " +
+                    $"Возраст - {student.age}\n";
+        }
     }
 }
