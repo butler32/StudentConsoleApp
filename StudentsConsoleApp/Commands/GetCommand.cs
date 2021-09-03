@@ -1,6 +1,5 @@
 ﻿using System;
 using StudentConsoleApp;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,7 +16,7 @@ namespace StudentsConsoleApp.Commands
         public override string Execute()
         {
             Student student = repository.Get(int.Parse(parametrs[1]));
-            if (student is not null)
+            if (student != null)
             {
                 return Student.ToString(student);
             }

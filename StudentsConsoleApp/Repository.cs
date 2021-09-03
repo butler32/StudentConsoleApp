@@ -16,7 +16,7 @@ namespace StudentsConsoleApp
         {
             for (int i = 0; i < 10; i++)
             {
-                if (students[i] is null)
+                if (students[i] == null)
                 {
                     students[i] = student;
                     students[i].id = id;
@@ -41,7 +41,7 @@ namespace StudentsConsoleApp
         {
             for (int i = 0; i < students.Length; i++)
             {
-                if (students[i] is not null && students[i].id == id)
+                if (students[i]!=null && students[i].id == id)
                 {
                     students[i] = null;
                     return 1;
@@ -88,7 +88,7 @@ namespace StudentsConsoleApp
             int length = 0;
             for (int i = 0; i < students.Length; i++)
             {
-                if (students[i] is not null)
+                if (students[i] != null)
                     length++;
             }
 
@@ -96,7 +96,7 @@ namespace StudentsConsoleApp
             int j = 0;
             for (int i = 0; i < students.Length; i++)
             {
-                if (students[i] is not null)
+                if (students[i] != null)
                 {
                     studentsList[j] = students[i];
                     j++;

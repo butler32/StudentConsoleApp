@@ -8,7 +8,7 @@ namespace StudentsConsoleApp
         {
             Repository repository = new Repository();
             var parser = new CommandsParser(repository);
-            string defaultInput = "add стас стасик муж 18";
+            string defaultInput = "add стас стасик женский 18";
             var defaultCommand = parser.Parse(defaultInput);
             var defaultResult = defaultCommand.Execute();
             defaultInput = "add вова вовчик Ж 19";

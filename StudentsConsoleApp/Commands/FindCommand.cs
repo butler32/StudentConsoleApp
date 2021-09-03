@@ -16,7 +16,7 @@ namespace StudentsConsoleApp.Commands
         public override string Execute()
         {
             Student[] student = repository.Find(parametrs[1]);
-            if (student[0] is null)
+            if (student[0] == null)
                 return "Студентов не найдено";
             StringBuilder findStudent = new StringBuilder("Найдены студенты:\n");
             for (int i = 0; i < student.Length; i++)
