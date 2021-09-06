@@ -1,11 +1,10 @@
-﻿using StudentConsoleApp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsConsoleApp.Commands
+namespace StudentConsoleApp.Commands
 {
     class FindCommand : Command
     {
@@ -15,6 +14,7 @@ namespace StudentsConsoleApp.Commands
 
         public override string Execute()
         {
+            parametrs[1] = Mapper.NameMap(parametrs[1]);
             Student[] student = repository.Find(parametrs[1]);
             if (student[0] == null)
                 return "Студентов не найдено";

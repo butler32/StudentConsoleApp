@@ -15,9 +15,9 @@ namespace StudentConsoleApp
         public int id { get; set; }
         public Student(string name, string surname, string gender, int age)
         {
-            this.name = name;
-            this.surname = surname;
-            this.gender = gender;
+            this.name = Mapper.NameMap(name); ;
+            this.surname = Mapper.NameMap(surname);
+            this.gender = Mapper.GenderMap(gender);
             this.age = age;
         }
 

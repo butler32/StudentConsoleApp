@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StudentsConsoleApp.Commands;
-using StudentConsoleApp;
+using StudentConsoleApp.Commands;
 
-namespace StudentsConsoleApp.Commands
+namespace StudentConsoleApp.Commands
 {
     class EditCommand : Command
     {

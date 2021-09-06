@@ -1,12 +1,12 @@
-﻿using StudentsConsoleApp.Commands;
-using StudentsConsoleApp.Validators;
+﻿using StudentConsoleApp.Commands;
+using StudentConsoleApp.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsConsoleApp
+namespace StudentConsoleApp
 {
     enum ErrorList
     {
@@ -55,16 +55,10 @@ namespace StudentsConsoleApp
             {
                 case "ADD":
                     {
-                        parametrs[1] = Mapper.NameMap(parametrs[1]);
-                        parametrs[2] = Mapper.NameMap(parametrs[2]);
-                        parametrs[3] = Mapper.GenderMap(parametrs[3]);
                         return new AddComand(repository, parametrs);
                     }
                 case "EDIT":
                     {
-                        parametrs[2] = Mapper.NameMap(parametrs[2]);
-                        parametrs[3] = Mapper.NameMap(parametrs[3]);
-                        parametrs[4] = Mapper.GenderMap(parametrs[4]);
                         return new EditCommand(repository, parametrs);
                     }
                 case "GET":
@@ -85,7 +79,6 @@ namespace StudentsConsoleApp
                     }
                 case "FIND":
                     {
-                        parametrs[1] = Mapper.NameMap(parametrs[1]);
                         return new FindCommand(repository, parametrs);
                     }
                 default:

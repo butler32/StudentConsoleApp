@@ -1,11 +1,10 @@
-﻿using StudentConsoleApp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsConsoleApp
+namespace StudentConsoleApp
 {
     class Repository
     {

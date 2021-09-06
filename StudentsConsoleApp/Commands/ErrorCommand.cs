@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsConsoleApp.Commands
+namespace StudentConsoleApp.Commands
 {
     class ErrorCommand : Command
     {

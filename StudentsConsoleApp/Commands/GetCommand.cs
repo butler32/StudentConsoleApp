@@ -1,11 +1,10 @@
 ﻿using System;
-using StudentConsoleApp;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentsConsoleApp.Commands
+namespace StudentConsoleApp.Commands
 {
     class GetCommand : Command
     {
