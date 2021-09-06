@@ -8,19 +8,19 @@ namespace StudentConsoleApp
         {
             Repository repository = new Repository();
             var parser = new CommandsParser(repository);
-            string defaultInput = "add стас стасик женский 18";
+            string defaultInput = "add стас стасик М 18";
             var defaultCommand = parser.Parse(defaultInput);
             var defaultResult = defaultCommand.Execute();
-            defaultInput = "add вова вовчик Ж 19";
+            defaultInput = "add вова вовчик М 19";
             defaultCommand = parser.Parse(defaultInput);
             defaultResult = defaultCommand.Execute();
-            defaultInput = "add влад владик женский 20";
+            defaultInput = "add влад владик М 20";
             defaultCommand = parser.Parse(defaultInput);
             defaultResult = defaultCommand.Execute();
             defaultInput = "add даник дэнчик мужской 21";
             defaultCommand = parser.Parse(defaultInput);
             defaultResult = defaultCommand.Execute();
-            defaultInput = "add кирилл кирилльчик жен 22";
+            defaultInput = "add кирилл кирилльчик М 22";
             defaultCommand = parser.Parse(defaultInput);
             defaultResult = defaultCommand.Execute();
             while (true)

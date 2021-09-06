@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using StudentConsoleApp.Validators;
 
 namespace StudentConsoleApp.Commands
 {
@@ -14,7 +15,15 @@ namespace StudentConsoleApp.Commands
 
         public override string Execute()
         {
-            parametrs[1] = Mapper.NameMap(parametrs[1]);
+            var errorResult = BaseValidator.OneParametrNullValidate(parametrs[1]);
+            if (errorResult == 0)
+                errorResult = BaseValidator.NameValidate(parametrs[1]);
+            if (errorResult != 0)
+            {
+                ErrorCommand error = new ErrorCommand(repository, parametrs, (ErrorList)errorResult);
+                return error.Execute();
+            }
+
             Student[] student = repository.Find(parametrs[1]);
             if (student[0] == null)
                 return "Студентов не найдено";

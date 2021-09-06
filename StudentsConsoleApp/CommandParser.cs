@@ -1,5 +1,4 @@
 ﻿using StudentConsoleApp.Commands;
-using StudentConsoleApp.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +7,16 @@ using System.Threading.Tasks;
 
 namespace StudentConsoleApp
 {
+    [Flags]
     enum ErrorList
     {
-        NullFields = 2,
-        WrongDigits,
-        WrongGender,
-        WrongLength,
-        WrongName,
-        WrongAge,
-        WrongCommand = 0
+        NullFields = 0b_000_0001,
+        WrongDigits = 0b_000_0010,
+        WrongGender = 0b_000_0100,
+        WrongLength = 0b_000_1000,
+        WrongName = 0b_001_0000,
+        WrongAge = 0b_010_0000,
+        WrongCommand = 0b_100_0000
     }
 
     class CommandsParser
@@ -41,14 +41,6 @@ namespace StudentConsoleApp
                     parametrs[index] = item;
                     index++;
                 }
-            }
-
-            Validator val = new Validator(parametrs);
-            int result = 1;
-            result = val.Validate();
-            if (result != 1)
-            {
-                return new ErrorCommand(repository, parametrs, (ErrorList)result);
             }
 
             switch (parametrs[0]?.ToUpper())
@@ -83,7 +75,7 @@ namespace StudentConsoleApp
                     }
                 default:
                     {
-                        return new ErrorCommand(repository, parametrs, (ErrorList)result);
+                        return new ErrorCommand(repository, parametrs, 0);
                     }
             }
         }
