@@ -10,13 +10,14 @@ namespace StudentConsoleApp
     [Flags]
     enum ErrorList
     {
-        NullFields = 0b_000_0001,
-        WrongDigits = 0b_000_0010,
-        WrongGender = 0b_000_0100,
-        WrongLength = 0b_000_1000,
-        WrongName = 0b_001_0000,
-        WrongAge = 0b_010_0000,
-        WrongCommand = 0b_100_0000
+        NullFields = 0b_0000_0001, // 1
+        WrongDigits = 0b_0000_0010, // 2
+        WrongGender = 0b_0000_0100, // 4
+        WrongLength = 0b_0000_1000, // 8
+        WrongName = 0b_0001_0000, // 16
+        WrongAge = 0b_0010_0000, // 32
+        WrongCommand = 0b_0100_0000, // 64
+        WrongFileName = 0b_1000_0000 // 128
     }
 
     class CommandsParser
@@ -47,7 +48,7 @@ namespace StudentConsoleApp
             {
                 case "ADD":
                     {
-                        return new AddComand(repository, parametrs);
+                        return new AddCommand(repository, parametrs);
                     }
                 case "EDIT":
                     {
@@ -72,6 +73,18 @@ namespace StudentConsoleApp
                 case "FIND":
                     {
                         return new FindCommand(repository, parametrs);
+                    }
+                case "SAVE":
+                    {
+                        return new SerializeCommand(repository, parametrs);
+                    }
+                case "LOAD":
+                    {
+                        return new DeserializeCommand(repository, parametrs);
+                    }
+                case "EXIT":
+                    {
+                        return new ExitCommand(repository, parametrs);
                     }
                 default:
                     {
