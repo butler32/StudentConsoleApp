@@ -21,6 +21,16 @@ namespace StudentConsoleApp.Validators
             return 0;
         }
 
+        public static int PathValidate(string parametr)
+        {
+            string[] path = parametr.Split('.');
+            if (path[path.Length - 1] != "json")
+            {
+                return 128;
+            }
+            return 0;
+        }
+
         public static int NullValidate(string[] parametrs)
         {
             for (int i = 0; i < parametrs.Length - 1; i++)

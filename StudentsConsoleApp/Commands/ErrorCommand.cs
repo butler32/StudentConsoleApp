@@ -35,44 +35,10 @@ namespace StudentConsoleApp.Commands
             if ((er & ErrorList.WrongAge) != 0)
                 res += "Возраст должен быть от 18 до 99 лет\n";
 
+            if ((er & ErrorList.WrongFileName) != 0)
+                res += "Надо указать файл с расширением \".json\"";
+
             return res;
-
-
-
-
-
-
-          /*  switch (er)
-            {
-                case ErrorList.NullFields:
-                    {
-                        return "Введены не все параметры";
-                    }
-                case ErrorList.WrongDigits:
-                    {
-                        return "Неверно введены числовые параметры";
-                    }
-                case ErrorList.WrongGender:
-                    {
-                        return "Неверно введён пол";
-                    }
-                case ErrorList.WrongLength:
-                    {
-                        return "Максимальная длина имени и фамилии - 50";
-                    }
-                case ErrorList.WrongName:
-                    {
-                        return "В имени и фамилии не должно быть цифр";
-                    }
-                case ErrorList.WrongAge:
-                    {
-                        return "Возраст должен быть от 18 до 99 лет";
-                    }
-                default:
-                    {
-                        return "Введите верно команду";
-                    }
-            } */
         }
     }
 }

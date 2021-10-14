@@ -18,7 +18,7 @@ namespace StudentConsoleApp
                 if (students[i] == null)
                 {
                     students[i] = student;
-                    students[i].id = id;
+                    students[i].Id = id;
                     return id++;
                 }
             }
@@ -29,7 +29,7 @@ namespace StudentConsoleApp
         {
             for (int i = 0; i < students.Length; i++)
             {
-                if (students[i] != null && students[i].id == id)
+                if (students[i] != null && students[i].Id == id)
                     return students[i];
             }
             return null;
@@ -40,7 +40,7 @@ namespace StudentConsoleApp
         {
             for (int i = 0; i < students.Length; i++)
             {
-                if (students[i]!=null && students[i].id == id)
+                if (students[i]!=null && students[i].Id == id)
                 {
                     students[i] = null;
                     return 1;
@@ -53,11 +53,11 @@ namespace StudentConsoleApp
         {
             for (int i = 0; i < 10; i++)
             {
-                if (students[i] != null && students[i].id == id)
+                if (students[i] != null && students[i].Id == id)
                 {
-                    int oldId = students[i].id;
+                    int oldId = students[i].Id;
                     students[i] = student;
-                    students[i].id = oldId;
+                    students[i].Id = oldId;
                     return id;
                 }
             }
@@ -70,8 +70,8 @@ namespace StudentConsoleApp
             int j = 0;
             for (int i = 0; i < students.Length; i++)
             {
-                if (students[i] != null && (students[i].name.Contains(name, StringComparison.OrdinalIgnoreCase) ||
-                    students[i].surname.Contains(name, StringComparison.OrdinalIgnoreCase)))
+                if (students[i] != null && (students[i].Name.Contains(name, StringComparison.OrdinalIgnoreCase) ||
+                    students[i].Surname.Contains(name, StringComparison.OrdinalIgnoreCase)))
                 {
                     studentsSearch[j] = students[i];
                     j++;

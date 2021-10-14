@@ -7,9 +7,9 @@ using StudentConsoleApp.Validators;
 
 namespace StudentConsoleApp.Commands
 {
-    class AddComand : Command
+    class AddCommand : Command
     {
-        public AddComand(Repository repository, string[] parametrs)
+        public AddCommand(Repository repository, string[] parametrs)
             : base(repository, parametrs)
         {
         }
@@ -28,7 +28,7 @@ namespace StudentConsoleApp.Commands
             Student student = new Student(parametrs[1], parametrs[2], parametrs[3], int.Parse(parametrs[4]));
             int result = repository.Add(student);
             string res;
-            _ = result != 0 ? res = $"Студент {student.surname} {student.name} добавлен" : res = "Не получилось добавить студента";
+            _ = result != 0 ? res = $"Студент {student.Surname} {student.Name} добавлен" : res = "Не получилось добавить студента";
             return res;
         }
     }

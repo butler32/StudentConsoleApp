@@ -18,27 +18,27 @@ namespace StudentConsoleApp
             {
                 case "М":
                     {
-                        return "Мужской";
+                        return "Male";
                     }
                 case "Ж":
                     {
-                        return "Женский";
+                        return "Female";
                     }
                 case "муж":
                     {
-                        return "Мужской";
+                        return "Male";
                     }
                 case "жен":
                     {
-                        return "Женский";
+                        return "Female";
                     }
                 case "мужской":
                     {
-                        return "Мужской";
+                        return "Male";
                     }
                 case "женский":
                     {
-                        return "Женский";
+                        return "Female";
                     }
                 default:
                     {
